@@ -1,12 +1,5 @@
-image:
-  tag: 1.4.0
-
 persistence:
   enabled: false
-
-ord:
-  type: solo
-  mspID: OrdererMSP
 
 secrets:
   ord:

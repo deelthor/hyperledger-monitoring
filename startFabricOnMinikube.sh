@@ -33,7 +33,7 @@ kubectl create secret generic -n orderers hlf--ord1-idcert --from-file=cert.pem=
 NODE_KEY=$(ls ${MSP_DIR}/keystore/*_sk)
 kubectl create secret generic -n orderers hlf--ord1-idkey --from-file=key.pem=$NODE_KEY
 # install Orderer
-helm install stable/hlf-ord -n ord1 --namespace orderers -f ../helm_values/ord1.yaml
+helm install ../hlf-ord -n ord1 --namespace orderers
 ORD_POD=$(kubectl get pods -n orderers -l "app=hlf-ord,release=ord1" -o jsonpath="{.items[0].metadata.name}")
 until (kubectl logs -n orderers $ORD_POD | grep 'Starting orderer'); do
   echo 'Waiting for Orderer to start'
