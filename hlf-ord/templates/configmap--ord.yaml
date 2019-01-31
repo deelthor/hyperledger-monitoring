@@ -30,3 +30,8 @@ data:
   ORDERER_GENERAL_TLS_CLIENTROOTCAS: "/var/hyperledger/tls/client/cert/*"
   GODEBUG: "netdns=go"
   ADMIN_MSP_PATH: /var/hyperledger/admin_msp
+  ###########
+  # Metrics #
+  ###########
+  ORDERER_OPERATIONS_LISTENADDRESS: 0.0.0.0:9443
+  ORDERER_METRICS_PROVIDER: prometheus

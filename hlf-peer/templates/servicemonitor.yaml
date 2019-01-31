@@ -1,0 +1,18 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: hlf-peer-monitoring
+  namespace: monitoring
+  labels:
+    app: hlf-peer
+    release: prom
+spec:
+  selector:
+    matchLabels:
+      app: hlf-peer
+      release: peer1
+  endpoints:
+  - interval: 30s
+    port: metrics
+  namespaceSelector:
+    any: true

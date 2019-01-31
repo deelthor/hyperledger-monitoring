@@ -19,7 +19,7 @@ data:
   ###########
   # Metrics #
   ###########
-  CORE_OPERATIONS_LISTENADDRESS: 127.0.0.1:9443
+  CORE_OPERATIONS_LISTENADDRESS: 0.0.0.0:9443
   CORE_METRICS_PROVIDER: prometheus
   ###########
   # Logging #

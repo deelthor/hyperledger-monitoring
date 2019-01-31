@@ -1,0 +1,18 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: hlf-ord-monitoring
+  namespace: monitoring
+  labels:
+    app: hlf-ord
+    release: prom
+spec:
+  selector:
+    matchLabels:
+      app: hlf-ord
+      release: ord1
+  endpoints:
+  - interval: 30s
+    port: metrics
+  namespaceSelector:
+    any: true

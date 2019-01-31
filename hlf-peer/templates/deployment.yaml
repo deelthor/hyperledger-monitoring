@@ -59,6 +59,9 @@ spec:
             - name: event
               containerPort: 7053
               protocol: TCP
+            - name: metrics
+              containerPort: 9443
+              protocol: TCP
           livenessProbe:
             exec:
               command:

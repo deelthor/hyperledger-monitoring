@@ -7,6 +7,8 @@ exit
 helm init
 kubectl create ns orderers
 kubectl create ns peers
+# Prometheus Operator incl Prometheus, Grafana, ServierMonitor etc.
+helm install stable/prometheus-operator --name prom --namespace monitoring
 cd config
 # save relevant Orderer admin crypto-config files as secrets
 MSP_DIR=./crypto-config/ordererOrganizations/orderers.svc.cluster.local/users/Admin@orderers.svc.cluster.local/msp
