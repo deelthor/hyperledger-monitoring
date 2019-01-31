@@ -61,8 +61,3 @@ until (kubectl logs -n peers $PEER_POD | grep 'Starting peer'); do
   echo 'Waiting for Peer to start'
   sleep 5
 done
-# create, fetch, join Channel
-kubectl exec -n peers $PEER_POD -- peer channel create -o ord1-hlf-ord.orderers.svc.cluster.local:7050 -c mychannel -f /hl_config/channel/mychannel.tx
-kubectl exec -n peers $PEER_POD -- peer channel fetch config /var/hyperledger/mychannel.block -c mychannel -o ord1-hlf-ord.orderers.svc.cluster.local:7050
-kubectl exec -n peers $PEER_POD -- bash -c 'CORE_PEER_MSPCONFIGPATH=$ADMIN_MSP_PATH peer channel join -b /var/hyperledger/mychannel.block'
-kubectl exec -n peers $PEER_POD -- peer channel list
