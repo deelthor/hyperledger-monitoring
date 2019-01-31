@@ -53,7 +53,7 @@ kubectl create secret generic -n peers hlf--peer1-idcert --from-file=cert.pem=$N
 NODE_KEY=$(ls ${MSP_DIR}/keystore/*_sk)
 kubectl create secret generic -n peers hlf--peer1-idkey --from-file=key.pem=$NODE_KEY
 # install Peer
-helm install stable/hlf-peer -n peer1 --namespace peers -f ../helm_values/peer1.yaml
+helm install ../hlf-peer -n peer1 --namespace peers
 PEER_POD=$(kubectl get pods -n peers -l "app=hlf-peer,release=peer1" -o jsonpath="{.items[0].metadata.name}")
 until (kubectl logs -n peers $PEER_POD | grep 'Starting peer'); do
   echo 'Waiting for Peer to start'

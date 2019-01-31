@@ -1,13 +1,5 @@
-image:
-  tag: 1.4.0
-
 persistence:
   enabled: false
-
-peer:
-  databaseType: CouchDB
-  couchdbInstance: cdb-peer1
-  mspID: PeerMSP
 
 secrets:
   peer:
