@@ -2,6 +2,8 @@
 
 ```sh
 minikube start --memory=4096 --bootstrapper=kubeadm
+# minikube bug
+# otherwise pods wont be able to reach their own service via
 minikube ssh
 sudo ip link set docker0 promisc on
 exit
