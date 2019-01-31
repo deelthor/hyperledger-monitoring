@@ -40,7 +40,7 @@ until (kubectl logs -n orderers $ORD_POD | grep 'Starting orderer'); do
   sleep 5
 done
 # install CouchDB
-helm install stable/hlf-couchdb -n cdb-peer1 --namespace peers -f ../helm_values/cdb-peer1.yaml
+helm install ../hlf-couchdb -n cdb-peer1 --namespace peers
 CDB_POD=$(kubectl get pods -n peers -l "app=hlf-couchdb,release=cdb-peer1" -o jsonpath="{.items[*].metadata.name}")
 until (kubectl logs -n peers $CDB_POD | grep 'Apache CouchDB has started on'); do
   echo 'Waiting for CouchDB to start'
